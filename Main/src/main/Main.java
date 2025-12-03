@@ -19,7 +19,7 @@ public class Main {
         int opcion = 0;
         
         do{
-            System.out.println("----------MENU------------\n");
+            System.out.println("-----------------MENU-------------------\n");
             System.out.println("1. Agregar un nodo al final");
             System.out.println("2. Insertar un nodo en posicion especifica");
             System.out.println("3. Eliminar nodo por codigo");
@@ -30,42 +30,36 @@ public class Main {
             
             try{
                 opcion = lea.nextInt();
-                int code;
-                String name;
-                int index;
-                Nodo nuevoNodo;
-                boolean resultadoEliminar;
-                Nodo resultadoBuscar;
                 
                 switch(opcion){
                     case 1:
                         System.out.print("Ingrese el codigo del nodo: ");
-                        code = lea.nextInt();
-                        lea.nextLine();
+                        int code = lea.nextInt();
+                        lea.next();
                         System.out.print("Ingrese el nombre: ");
-                        name = lea.nextLine();
-                        nuevoNodo = new Nodo(code, name);
+                        String name = lea.next();
+                        Nodo nuevoNodo = new Nodo(code, name);
                         lista.add(nuevoNodo);
                         System.out.println("Nodo agregado al final.");
                         break;
                     case 2:
                         System.out.print("Ingrese el codigo del nuevo nodo: ");
                         code = lea.nextInt();
-                        lea.nextLine();
+                        lea.next();
                         System.out.print("Ingrese el nombre: ");
-                        name = lea.nextLine();
+                        name = lea.next();
                         System.out.print("Ingrese la posicion para insertar (0 a " + lista.size() + "): ");
-                        index = lea.nextInt();
+                        int index = lea.nextInt();
                         nuevoNodo = new Nodo(code, name);
                         lista.addInsertar(index, nuevoNodo);
-                        System.out.println("Nodo insertado en la posición " + index);
+                        System.out.println("Nodo insertado en la posicion " + index);
                         break;
                     case 3:
                         System.out.print("Ingrese el codigo del nodo a eliminar: ");
                         code = lea.nextInt();
-                        resultadoEliminar = lista.remove(code);
+                        boolean resultadoEliminar = lista.remove(code);
                         if (resultadoEliminar) {
-                            System.out.println("Nodo con codigo " + code + " eliminado con éxito");
+                            System.out.println("Nodo con codigo " + code + " eliminado con exito");
                         } else {
                             System.out.println("Nodo con codigo " + code + " no encontrado");
                         }
@@ -76,7 +70,7 @@ public class Main {
                     case  5:
                          System.out.print("Ingrese el codigo del nodo a buscar: ");
                         code = lea.nextInt();
-                        resultadoBuscar = lista.get(code);
+                        Nodo resultadoBuscar = lista.get(code);
                         if (resultadoBuscar != null) {
                             System.out.println("Nodo encontrado: " + resultadoBuscar);
                         } else {
